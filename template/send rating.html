@@ -1,0 +1,57 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'indexuser.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="addsendrating">
+  <table class="table table-hover">
+    <tr>
+      <th width="96">expert</th>
+      <td width="171"><label>
+        <select name="select">
+          {% for i in val %}
+          <option value="{{i.id}}">{{i.firstname}}<br>{{i.lastname}}</option>
+          {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <th>Rate</th>
+      <td><label>
+      <select name="select2">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+      </select>
+      </label></td>
+    </tr>
+    <tr>
+      <th>Review</th>
+      <td><label>
+        <input type="text" name="textfield2" class="form-control" required/>
+      </label></td>
+    </tr>
+    <tr align="center">
+      <td colspan="2"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="send" class="btn btn-success"/>
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

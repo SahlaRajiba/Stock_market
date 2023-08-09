@@ -1,0 +1,41 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'index1.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="expert_add#about">
+  <table class="table table-hover">
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <td>&nbsp;</td>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td>{{i.firstname}}{{i.lastname}}</td>
+      <td>{{i.place}},{{i.post}},{{i.pin}}</td>
+      <td>{{i.phone}}</td>
+      <td>{{i.email}}</td>
+      <td><p><a href="{% url 'expert_edit' id=i.id %}#about" class="btn btn-primary">edit</a></p>
+      <p><a href="{% url 'exdeletecode' id=i.lid.id %}#about" onclick="return confirm('Are you sure?')" class="btn btn-danger">delete</a></p></td>
+    </tr>
+    {% endfor %}
+    <tr align="center">
+      <td colspan="5"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="Add"  class="btn btn-success"/>
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

@@ -1,0 +1,111 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'User_index.html' %}
+{% block body %}
+
+<head>
+
+     <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+<style>
+       #customer th {
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+<!-- Begin alerts -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                <script>
+
+                    Swal.fire({
+
+                        title:"{{ category.title() }}!",
+                        // success , error , warning ,info
+
+                        text: "{{ message }}",
+                        // Custom message flashed from your flask routes
+
+                        icon: "{{ category }}" == "danger" ? "error" : "{{ category }}"
+                        // success , error , warning ,info
+
+                    })
+
+                </script>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+ flash("Record Saved!", "success")
+
+
+<form id="form1" name="form1" method="post" action="/adpost">
+
+<!--    <div align="center">-->
+
+<!--        <h3>ADD POST</h3>-->
+
+<!--  <table class="table table-hover" id="customer">-->
+<!--    <tr>-->
+<!--      <th >Post</th>-->
+<!--      <th >-->
+<!--        <input  class="form-control" type="text" name="textfield" required  height="100"/>-->
+<!--      </th>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td colspan="2" align="center"><input type="submit" class="btn btn-primary" name="button" id="button" value="ADD" />-->
+<!--              <div align="right"><a href="/User#about">Back</a>-->
+
+<!--      </td>-->
+
+<!--    </tr>-->
+<!--  </table>-->
+
+     <div class="form-group" align="center ">
+
+         <label for="comment" align="centre"><h3>ADD POST</h3></label>
+      <textarea class="form-control" rows="5" id="comment" name="textfield" required></textarea>
+
+         <div align="left">
+
+
+         <input type="submit" class="btn btn-primary" name="button" id="button" value="ADD" />
+ </div>
+         <div align="right"><a href="/User#about">Back</a>
+
+    </div>
+
+         <div>
+
+
+                <!-- End alerts -->
+    </div>
+
+
+
+
+</form>
+</body>
+{% endblock %}
+
+<!--</html>-->

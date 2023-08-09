@@ -1,0 +1,44 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'index1.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="viewratingcode#about">
+  <table class="table table-striped">
+    <tr>
+      <th width="122">Expert</th>
+      <td width="109"><label>
+        <select name="select">
+          {% for i in val %}
+          <option value="{{i.id}}">{{i.firstname}}<br>{{i.lastname}}</option>
+          {% endfor %}
+        </select>
+      </label></td>
+      <td colspan="2"><label>
+        <input type="submit" name="Submit" value="search" class="btn btn-info"/>
+      </label></td>
+    </tr>
+    <tr>
+      <th>Rating</th>
+      <th>Review</th>
+      <th width="37">Date</th>
+      <th width="40">User</th>
+    </tr>
+    {% for i in val1 %}
+    <tr>
+      <td height="60">{{i.rating}}</td>
+      <td>{{i.review}}</td>
+      <td>{{i.date}}</td>
+      <td>{{i.uid.firstname}}{{i.uid.lastname}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}
